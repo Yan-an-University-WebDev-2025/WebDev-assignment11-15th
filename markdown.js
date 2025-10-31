@@ -1,7 +1,7 @@
 // 声明节点
 const editor = document.getElementById('editor');/*编辑区*/
 const preview = document.getElementById('preview');/*预览区*/
-
+const LS_KEY = 'md-editor-content';/*本地存储的键*/
 /*正则转换*/
 function parse(md) {
     let html = md
@@ -38,6 +38,7 @@ function parse(md) {
 function render() {
     /*将编辑器中的内容进行解析，并渲染到预览区*/
     preview.innerHTML = parse(editor.value);
+    localStorage.setItem(LS_KEY, editor.value);/*保存到本地*/
 }
 
 /*工具栏插入*/
@@ -107,6 +108,15 @@ document.addEventListener('mouseup', () => {
 
 /* 页面加载完成时渲染 */
 window.addEventListener('DOMContentLoaded', () => {
+    editor.value = localStorage.getItem(LS_KEY) || `# 欢迎使用实时 Markdown 编辑器
+
+**功能清单：**
+- 左侧编辑，右侧实时预览
+- 工具栏快速插入语法
+- 拖拽中间条调整宽度
+- 自动保存到 localStorage
+
+开始写作吧！`;
     render();/* 渲染 */
 });
 
