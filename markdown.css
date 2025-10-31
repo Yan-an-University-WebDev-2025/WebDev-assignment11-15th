@@ -1,105 +1,123 @@
 /*css编写*/
 /*声明全局变量,表示文档的根元素*/
-:root {
-  --bg: #ffffff;
-  --side: #fafbfc;
-  --border: #d0d7de;
-  --primary: #0969da;
-  --text: #24292f;
-  --code-bg: #f6f8fa;
+:root{
+    --bg: #ffffff;
+    --side: #fafbfc;
+    --border: #d0d7de;
+    --primary: #0969da;
+    --text: #24292f;
+    --code-bg: #f6f8fa
 }
+
 
 /*通配符选择器*/
 * {
-  box-sizing: border-box; /*盒模型*/
-  margin: 0; /*清除默认样式*/
-  padding: 0; /*清除默认样式*/
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif; /*字体*/
+    box-sizing: border-box; /*盒模型*/
+    margin: 0; /*清除默认样式*/
+    padding: 0; /*清除默认样式*/
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif/*字体*/
 }
 
 /*元素选择器*/
-html,
-body {
-  height: 100%; /*100%高度*/
-  overflow: hidden; /*隐藏滚动条,可以通过编程的方式实现滚动条*/
+html, body {
+    height: 100%;/*100%高度*/
+    overflow: hidden/*隐藏滚动条,可以通过编程的方式实现滚动条*/
 }
 
 /*类选择器*/
 /*外层布局*/
 .wrap {
-  display: flex; /*弹性布局*/
-  height: 100%; /* 100%高度*/
-  background: var(--bg); /*背景颜色，使用自定义属性*/
-  color: var(--text); /*文本颜色*/
+    display: flex;/*弹性布局*/
+    height: 100%;/* 100%高度*/
+    background: var(--bg);/*背景颜色，使用自定义属性*/
+    color: var(--text)/*文本颜色*/
 }
 
 /*工具栏布局*/
 .toolbar {
-  display: flex; /*弹性布局*/
-  align-items: center; /*垂直居中*/
-  padding: 8px 12px; /*内外边距*/
-  border-bottom: 1px solid var(--border); /*边框*/
-  background: var(--side); /*背景颜色*/
-  gap: 6px; /*间隔*/
-  flex-shrink: 0; /*宽度自适应*/
+    display: flex;/*弹性布局*/
+    align-items: center;/*垂直居中*/
+    padding: 8px 12px;/*内外边距*/
+    border-bottom: 1px solid var(--border);/*边框*/
+    background: var(--side);/*背景颜色*/
+    gap: 6px;/*间隔*/
+    flex-shrink: 0 /*宽度自适应*/
 }
 
 /*工具栏按钮*/
 /*添加鼠标样式：*/
 .toolbar button {
-  padding: 6px 10px; /*内外边距*/
-  border: 1px solid var(--border); /*边框*/
-  border-radius: 6px; /*圆角*/
-  background: #fff; /*背景颜色*/
-  color: var(--text); /*文本颜色*/
-  font-size: 14px; /*字体大小*/
-  cursor: pointer; /*鼠标样式*/
-  transition: all 0.2s; /*变化速度*/
+    padding: 6px 10px;/*内外边距*/
+    border: 1px solid var(--border);/*边框*/
+    border-radius: 6px;/*圆角*/
+    background: #fff;/*背景颜色*/
+    color: var(--text);/*文本颜色*/
+    font-size: 14px;/*字体大小*/
+    cursor: pointer;/*鼠标样式*/
+    transition: all .2s /*变化速度*/
 }
 
 /*工具栏按钮:hover，伪类选择器*/
 /*改变，鼠标悬停边框和字体颜色*/
 .toolbar button:hover {
-  border-color: var(--primary); /*边框颜色*/
-  color: var(--primary); /*文本颜色*/
+    border-color: var(--primary); /*边框颜色*/
+    color: var(--primary) /*文本颜色*/
 }
 
 /*左侧：编辑区*/
 .left {
-  display: flex; /*弹性布局*/
-  flex-direction: column; /*垂直方向*/
-  width: 50%; /*宽度50%*/
-  min-width: 200px; /*最小宽度200px*/
+    display: flex;/*弹性布局*/
+    flex-direction: column;/*垂直方向*/
+    width: 50%;/*宽度50%*/
+    min-width: 200px/*最小宽度200px*/
 }
 
 /*id选择器,文本框*/
 #editor {
-  flex: 1; /*宽度自适应*/
-  width: 100%; /*宽度100%*/
-  padding: 16px; /*内外边距*/
-  border: none; /*边框*/
-  resize: none; /*禁止调整大小*/
-  outline: none; /*轮廓*/
-  font-size: 15px; /*字体大小*/
-  line-height: 1.6; /*行高*/
-  background: var(--bg); /* 背景颜色*/
+    flex: 1;/*宽度自适应*/
+    width: 100%;/*宽度100%*/
+    padding: 16px;/*内外边距*/
+    border: none;/*边框*/
+    resize: none;/*禁止调整大小*/
+    outline: none;/*轮廓*/
+    font-size: 15px;/*字体大小*/
+    line-height: 1.6;/*行高*/
+    background: var(--bg)/* 背景颜色*/
 }
 
 /* 预览区 */
 .right {
-  flex: 1; /*宽度自适应*/
-  display: flex; /*弹性布局*/
-  flex-direction: column; /*垂直方向*/
-  min-width: 200px; /*最小宽度200px*/
-  border-left: 1px solid var(--border); /*边框*/
+    flex: 1;/*宽度自适应*/
+    display: flex;/*弹性布局*/
+    flex-direction: column;/*垂直方向*/
+    min-width: 200px;/*最小宽度200px*/
+    border-left: 1px solid var(--border)/*边框*/
 }
 
 /*填充预览区*/
 #preview {
-  flex: 1; /*填充剩余空间*/
-  padding: 16px 20px; /*间隔*/
-  overflow: auto; /*滚动条*/
-  font-size: 16px; /*字体大小*/
-  line-height: 1.8; /*行高*/
+    flex: 1; /*填充剩余空间*/
+    padding: 16px 20px; /*间隔*/
+    overflow: auto; /*滚动条*/
+    font-size: 16px; /*字体大小*/
+    line-height: 1.8 /*行高*/
 }
+
+/*拖拽条*/
+.resizer {
+    width: 6px;/*宽度6px*/
+    background: var(--border);/*背景颜色*/
+    cursor: col-resize;/*鼠标样式*/
+    flex-shrink: 0;/*宽度自适应*/
+    position: relative/*绝对定位*/
+}
+
+/*拖拽条:hover，伪类选择器*/
+.resizer:hover {
+    background: var(--primary)/*背景颜色*/
+}
+
+
+
+
+
