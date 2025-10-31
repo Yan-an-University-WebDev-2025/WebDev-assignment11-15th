@@ -2,6 +2,7 @@
 const editor = document.getElementById('editor');/*编辑区*/
 const preview = document.getElementById('preview');/*预览区*/
 
+/*正则转换*/
 function parse(md) {
     let html = md
         // 代码块 ```...```
@@ -39,11 +40,58 @@ function render() {
     preview.innerHTML = parse(editor.value);
 }
 
+/*工具栏插入*/
+document.querySelector('.toolbar').addEventListener('click', e => {
+    if (e.target.tagName !== 'BUTTON') return;/*忽略非按钮点击*/
+    const cmd = e.target.dataset.command;/*获取按钮命令*/
+    const start = editor.selectionStart;/*获取当前光标位置*/
+    const end = editor.selectionEnd;/*获取当前光标位置*/
+    const selected = editor.value.slice(start, end);/*获取选中的文本*/
+    let text = selected;/*默认选中文本*/
+    switch (cmd) {
+        case 'bold':
+            text = `**${selected || '粗体'}**`;
+            break;
+        case 'italic':
+            text = `*${selected || '斜体'}*`;
+            break;
+        case 'link':
+            text = `[${selected || '链接文本'}](url)`;
+            break;
+        case 'image':
+            text = `![${selected || '图片描述'}](image-url)`;
+            break;
+        case 'code':
+            text = `\`${selected || 'code'}\``;
+            break;
+        case 'ul':
+            text = `- ${selected || '列表项'}`;
+            break;
+        case 'quote':
+            text = `> ${selected || '引用内容'}`;
+            break;
+        case 'h1':
+            text = `# ${selected || '标题'}`;
+            break;
+        case 'h2':
+            text = `## ${selected || '标题'}`;
+            break;
+        case 'h3':
+            text = `### ${selected || '标题'}`;
+            break;
+    }
+    editor.setRangeText(text, start, end, 'end');/*替换选中文本*/
+    render();/*渲染*/
+    editor.focus();/*聚焦*/
+});
+
+/*监听输入，并渲染*/
 editor.addEventListener('input', render);/*监听输入，并渲染*/
 
+/* 页面加载完成时渲染 */
 window.addEventListener('DOMContentLoaded', () => {
     render();/* 渲染 */
-});/* 页面加载完成时渲染 */
+});
 
 
 
