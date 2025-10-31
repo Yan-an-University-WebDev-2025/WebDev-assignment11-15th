@@ -88,6 +88,23 @@ document.querySelector('.toolbar').addEventListener('click', e => {
 /*监听输入，并渲染*/
 editor.addEventListener('input', render);/*监听输入，并渲染*/
 
+/* 拖动编辑器宽度 */
+const resizer = document.getElementById('resizer');/*拖动编辑器宽度*/
+let isResizing = false;/*是否正在拖动*/
+resizer.addEventListener('mousedown', e => {
+    isResizing = true;/*正在拖动*/
+    document.body.style.cursor = 'col-resize';/*改变鼠标样式*/
+});/*监听鼠标按下*/
+document.addEventListener('mousemove', e => {
+    if (!isResizing) return;/*不在拖动中*/
+    const width = e.clientX;/*获取鼠标位置*/
+    document.querySelector('.left').style.width = width + 'px';/*设置编辑器宽度*/
+});/*监听鼠标移动*/
+document.addEventListener('mouseup', () => {
+    isResizing = false;/*停止拖动*/
+    document.body.style.cursor = 'default';/*恢复鼠标样式*/
+});/*监听鼠标抬起*/
+
 /* 页面加载完成时渲染 */
 window.addEventListener('DOMContentLoaded', () => {
     render();/* 渲染 */
