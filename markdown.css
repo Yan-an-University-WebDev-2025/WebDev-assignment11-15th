@@ -117,8 +117,74 @@ html, body {
     background: var(--primary)/*背景颜色*/
 }
 
+/* 预览区 GitHub-like 样式 */
+#preview h1, #preview h2, #preview h3, #preview h4, #preview h5, #preview h6 {
+    margin-top: 16px;/*间隔*/
+    margin-bottom: 8px;/*间隔*/
+    font-weight: 600/*加粗*/
+}
+/* 标题样式 */
+#preview h1 {
+    font-size: 2em;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: .3em
+}
 
+#preview h2 {
+    font-size: 1.5em;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: .3em
+}
 
-
-
+#preview h3 {
+    font-size: 1.25em
+}
+/* 段落样式，外边距==段间距 */
+#preview p {
+    margin: 8px 0/*间隔*/
+}
+/* 列表样式 */
+#preview ul, #preview ol {
+    margin-left: 24px
+}
+/* 引言样式 */
+#preview blockquote {
+    padding: 0 1em;
+    color: #656d76;
+    border-left: .25em solid var(--border);
+    margin: 8px 0
+}
+/* 代码样式 */
+#preview code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 85%
+}
+/* 代码块样式 */
+#preview pre {
+    background: var(--code-bg);
+    padding: 12px;
+    border-radius: 6px;
+    overflow: auto
+}
+/* 代码块中的代码样式 */
+#preview pre code {
+    padding: 0;
+    background: none
+}
+/* 链接样式 */
+#preview a {
+    color: var(--primary);
+    text-decoration: none
+}
+/* 链接样式 */
+#preview a:hover {
+    text-decoration: underline
+}
+/* 图片样式 */
+#preview img {
+    max-width: 100%;
+    border-radius: 4px
+}
 
